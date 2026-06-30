@@ -4,6 +4,7 @@ using namespace std;
 /*
 ===========================================================
 Problem: Contains Duplicate
+https://leetcode.com/problems/contains-duplicate/
 
 Approaches:
 1. BruteForce
