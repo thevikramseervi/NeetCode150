@@ -70,8 +70,6 @@ vector<int> hash_map(vector<int> &nums, int target) {
   return {};
 }
 
-// ---------------------- Hash Map ------------------------
-
 int main() {
   int n, target;
   cin >> n >> target;

@@ -23,68 +23,57 @@ Approaches:
 */
 
 // --------------------- Sorting --------------------------
-bool sorting(string &s, string &t)
-{
-    if (s.length() != t.length())
-    {
-        return false;
-    }
-    sort(s.begin(), s.end());
-    sort(t.begin(), t.end());
-    return s == t;
+bool sorting(string &s, string &t) {
+  if (s.length() != t.length()) {
+    return false;
+  }
+  sort(s.begin(), s.end());
+  sort(t.begin(), t.end());
+  return s == t;
 }
 
 // -------------------- Hash Map --------------------------
-bool hash_map(string &s, string &t)
-{
-    if (s.length() != t.length())
-    {
-        return false;
-    }
+bool hash_map(string &s, string &t) {
+  if (s.length() != t.length()) {
+    return false;
+  }
 
-    unordered_map<char, int> scnt;
-    unordered_map<char, int> tcnt;
-    for (char ch : s)
-    {
-        scnt[ch]++;
-    }
-    for (char ch : t)
-    {
-        tcnt[ch]++;
-    }
-    return scnt == tcnt;
+  unordered_map<char, int> scnt;
+  unordered_map<char, int> tcnt;
+  for (char ch : s) {
+    scnt[ch]++;
+  }
+  for (char ch : t) {
+    tcnt[ch]++;
+  }
+  return scnt == tcnt;
 }
 
 // --------------- Hash Table using Array -----------------
-bool array_map(string &s, string &t)
-{
-    vector<int> cnt(26);
-    for (char ch : s)
-    {
-        cnt[ch - 'a']++;
-    }
-    for (char ch : t)
-    {
-        cnt[ch - 'a']--;
-    }
+bool array_map(string &s, string &t) {
+  vector<int> cnt(26);
+  for (char ch : s) {
+    cnt[ch - 'a']++;
+  }
+  for (char ch : t) {
+    cnt[ch - 'a']--;
+  }
 
-    for (int val : cnt)
-    {
-        if (val != 0)
-            return false;
-    }
-    return true;
+  for (int val : cnt) {
+    if (val != 0)
+      return false;
+  }
+  return true;
 }
 
-int main()
-{
-    int slen, tlen;
-    cin >> slen >> tlen;
+int main() {
+  int slen, tlen;
+  cin >> slen >> tlen;
 
-    string s, t;
-    cin >> s >> t;
+  string s, t;
+  cin >> s >> t;
 
-    cout << sorting(s, t) << endl;
-    cout << hash_map(s, t) << endl;
-    cout << array_map(s, t) << endl;
+  cout << sorting(s, t) << endl;
+  cout << hash_map(s, t) << endl;
+  cout << array_map(s, t) << endl;
 }
